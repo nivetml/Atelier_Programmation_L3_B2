@@ -1,27 +1,43 @@
+"""
+Exercice 3 de l'atelier 4 : Jeu du pendu
+file       = "Exercice_3.py"
+author     = "Baptiste Varamo & Jean-François Giammari"
+credits    = ["Baptiste Varamo","Jean-François Giammari"]
+version    = "1.0"
+"""
+
 import random
 import io
 
-def placesLettre(char : str, mot : str)->list:
+def placesLettre(char: str, mot: str) -> list:
+    """ Transform text (Uppercase for Name, Lowercase for surname)
+       char -- The letter
+       mot -- The word
+       return the formated list
+       """
     char = char[0]
-    
-    if (not char in mot):
+    if not char in mot:
         return []
     else:
         res = []
         for i in range(0, len(mot)):
-            if (mot[i] == char):
+            if mot[i] == char:
                 res.append(i)
         return res
 
+
 print(placesLettre('l', 'hellol'))
 
-def outputStr(mot : str):
+
+def outputStr(mot: str):
     str = ""
     for i in mot:
         str += '_'
     return str
 
+
 print(outputStr('hello'))
+
 
 def runGame():
     dico = []
@@ -41,7 +57,7 @@ def runGame():
         print("Nb de coup restant : ", 5 - i)
         print(game_str)
         char = input('Saisir une lettre : ')[0]
-        
+
         pos = placesLettre(char, word)
         if pos != []:
             for j in range(0, len(pos)):
@@ -51,5 +67,5 @@ def runGame():
             print("LOUPé")
     print("PERDU !!! Le mot était " + word)
 
-runGame()
 
+runGame()

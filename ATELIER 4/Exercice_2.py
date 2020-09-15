@@ -8,6 +8,7 @@ version    = "1.0"
 
 import io
 
+
 def mots_Nlettres(lst_mot: list, n: int) -> list:
     """ Filter in a list the word who contain n letter
     list_mot -- List of words
@@ -77,7 +78,7 @@ def liste_mots(lst_mot: list, prefix: str, suffix: str, n: int) -> list:
     return lst_Sfiltered
 
 
-def dictionnaire(file: str)->list:
+def dictionnaire(file: str) -> list:
     """ Display content of a file.txt
     file -- Txt file to read
     return the list of word
