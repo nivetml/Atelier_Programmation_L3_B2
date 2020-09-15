@@ -1,4 +1,5 @@
 import random
+import io
 
 def placesLettre(char : str, mot : str)->list:
     char = char[0]
@@ -23,21 +24,20 @@ def outputStr(mot : str):
 print(outputStr('hello'))
 
 def runGame():
-    dico = [
-        ("hello", 5),
-        ("world", 5),
-    ]
+    dico = []
+    with io.open("littre.txt", 'r', encoding='utf8') as f:
+        dico = f.read().split('\n')
 
     word = random.randint(0, len(dico))
-    word = dico[word][0]
+    word = dico[word]
     game_str = outputStr(word)
 
     i = 0
     while i <= 5:
         if (not '_' in game_str):
             print("Gagné !!")
-            break
-        
+            return 1
+
         print("Nb de coup restant : ", 5 - i)
         print(game_str)
         char = input('Saisir une lettre : ')[0]
@@ -49,6 +49,7 @@ def runGame():
         else:
             i += 1
             print("LOUPé")
+    print("PERDU !!! Le mot était " + word)
 
 runGame()
 
