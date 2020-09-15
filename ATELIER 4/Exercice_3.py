@@ -9,11 +9,12 @@ version    = "1.0"
 import random
 import io
 
+
 def placesLettre(char: str, mot: str) -> list:
-    """ Transform text (Uppercase for Name, Lowercase for surname)
+    """ Check if a letter is in a word
        char -- The letter
        mot -- The word
-       return the formated list
+       return the list with index
        """
     char = char[0]
     if not char in mot:
@@ -26,20 +27,23 @@ def placesLettre(char: str, mot: str) -> list:
         return res
 
 
-print(placesLettre('l', 'hellol'))
 
 
 def outputStr(mot: str):
+    """ Transforme textthe mystery text
+       mot -- The word
+       return a str of "_"
+       """
     str = ""
     for i in mot:
         str += '_'
     return str
 
 
-print(outputStr('hello'))
 
 
 def runGame():
+    """ Launch the game """
     dico = []
     with io.open("littre.txt", 'r', encoding='utf8') as f:
         dico = f.read().split('\n')

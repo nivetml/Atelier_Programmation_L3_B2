@@ -19,7 +19,7 @@ def full_name(str_arg: str) -> str:
 def is_mail(str_arg: str) -> (int, int):
     """ Check if email is valid
        str_arg -- The string who contain the email
-       return error code or succes code
+       return error code or succes code (1,0)
        """
 
     res = (1, 0)
