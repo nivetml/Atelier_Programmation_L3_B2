@@ -77,15 +77,16 @@ def liste_mots(lst_mot: list, prefix: str, suffix: str, n: int) -> list:
     return lst_Sfiltered
 
 
-def dictionnaire(file: str):
+def dictionnaire(file: str)->list:
     """ Display content of a file.txt
     file -- Txt file to read
+    return the list of word
     """
-    print("Fichier "+ file + " : ")
+    print("Fichier " + file + " : ")
     with io.open(file, 'r', encoding='utf8') as f:
-        content = f.readlines()
-    print(content)
-    print("*****************************************")
+        dico = f.read().split('\n')
+
+    return dico
 
 
 def test_exercice2():
@@ -106,7 +107,7 @@ def test_exercice2():
     print("Test if list prefix p : ", commencent_par(lst_mot, "p"))
     print("Test liste mots (re, voir,6) [revoir]  : ", liste_mots(lst_mot, "re", "voir", 6))
     print("Test liste mots (jo, r,5) [jouer]  : ", liste_mots(lst_mot, "jo", "r", 5))
-    dictionnaire("littre.txt")
+    print(dictionnaire("littre.txt"))
 
 
 test_exercice2()

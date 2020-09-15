@@ -1,15 +1,24 @@
-import re
+"""
+Exercice 1 de l'atelier 4 : Manipulations simples
+file       = "Exercice_1.py"
+author     = "Baptiste Varamo & Jean-François Giammari"
+credits    = ["Baptiste Varamo","Jean-François Giammari"]
+version    = "1.0"
+"""
 
-def full_name(str_arg : str)->str:
+
+def full_name(str_arg: str) -> str:
     res = str_arg.split()
     return res[0].upper() + " " + res[1].capitalize()
 
-print(full_name('varamo baptiste'))
 
-def is_mail(str_arg : str)->(int, int):
+
+
+
+def is_mail(str_arg: str) -> (int, int):
     if (not '@' in str_arg):
         return (0, 2)
-    
+
     mail = str_arg.split('@')
 
     if (mail[0] == ''):
@@ -21,4 +30,6 @@ def is_mail(str_arg : str)->(int, int):
     else:
         return (1, 0)
 
+
+print(full_name('varamo baptiste'))
 print(is_mail('baptiste.varamo@gm\\ail.com'))
