@@ -10,7 +10,8 @@ from Exercice_2 import dictionnaire, mots_Nlettres
 
 
 def mot_correspond(mot: str, motif: str) -> bool:
-    """  Check if the  string may or may not match the given pattern  string
+    """
+    Check if the  string may or may not match the given pattern  string
     mot -- The word
     motif -- The pattern
     return True if match
@@ -30,7 +31,8 @@ def mot_correspond(mot: str, motif: str) -> bool:
 
 
 def presente(lettre: str, mot: str) -> int:
-    """  Define the place of a letter in a word
+    """
+    Define the place of a letter in a word
     mot -- The word
     lettre -- The letter
     return index or -1 if the letter dont exist in the word
@@ -39,7 +41,8 @@ def presente(lettre: str, mot: str) -> int:
 
 
 def mot_possible(mot: str, lettres: str) -> bool:
-    """  Define if the word is writable with the letters
+    """
+    Define if the word is writable with the letters
     mot -- The word
     lettres -- The letters
     return True if is writable
@@ -58,7 +61,8 @@ def mot_possible(mot: str, lettres: str) -> bool:
 
 
 def mot_optimaux(dico: str, lettres: str) -> list:
-    """  Define the list of possible word with the letters
+    """
+    Define the list of possible word with the letters
     dico -- The dictionnary
     lettres -- The letters usable
     return list of possible word

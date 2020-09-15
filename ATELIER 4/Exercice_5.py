@@ -8,74 +8,96 @@ version    = "1.0"
 
 
 def ouvrante(car: str) -> bool:
-    """  Check if  a char is an opening parenthesis, hook or hug
-    car -- Char to analyse
-    return True if car is an opening parenthesis, hook or hug
     """
+    Check if  a char is an opening bracket, hook or brace
+    car -- Char to analyse
+    return True if car is an opening bracket, hook or brace
+    """
+    BRACKET = 40
+    HOOK = 91
+    BRACE = 123
     car = car[0]
-    return bool((ord(car) == 40 or ord(car) == 91 or ord(car) == 123))
+    return ord(car) == BRACKET or ord(car) == HOOK or ord(car) == BRACE
 
 
 def fermante(car: str) -> bool:
-    """  Check if  a char is an closing parenthesis, hook or hug
-     car -- Char to analyse
-     return True if car is an closing parenthesis, hook or hug
-     """
+    """
+    Check if  a char is an closing bracket, hook or brace
+    car -- Char to analyse
+    return True if car is an closing bracket, hook or brace
+    """
+    BRACKET = 41
+    HOOK = 93
+    BRACE = 125
     car = car[0]
-    return ord(car) == 41 or ord(car) == 93 or ord(car) == 125
+    return ord(car) == BRACKET or ord(car) == HOOK or ord(car) == BRACE
 
 
 def renverse(car: str) -> str:
-    """ Replace an parenthesis, hook or hug by its reverse
-     car -- Char to analyse
-     return the inverted char
-     """
-    car = car[0]
-    if ord(car) == 40:
-        return chr(41)
-    elif ord(car) == 91:
-        return chr(93)
-    elif ord(car) == 123:
-        return chr(125)
-    else:
-        return car
+    """
+    Replace an bracket, hook or hug by its reverse
+    car -- Char to analyse
+    return the inverted char
+    """
+    BRACKETS = [40, 41]
+    HOOKS = [91, 93]
+    BRACES = [123, 125]
+    car = ord(car[0])
+
+    if car == BRACKETS[0]:
+        car = BRACKETS[1]
+    elif car == HOOKS[0]:
+        car = HOOKS[1]
+    elif car == BRACES[0]:
+        car = BRACES[1]
+
+    return chr(car)
 
 
 def operateur(car: str) -> bool:
-    """ Check if a char is an operator
-        car -- Char to analyse
-        return True if car is an operator
     """
+    Check if a char is an operator (* +)
+    car -- Char to analyse
+    return True if car is an operator
+    """
+    MULTIPLICATION = 42
+    ADDITION = 43
     car = car[0]
-    return ord(car) == 42 or ord(car) == 43 or ord(car) == 45 or ord(car) == 47
+    return ord(car) == MULTIPLICATION or ord(car) == ADDITION
 
 
 def nombre(car: str) -> bool:
-    """ Check if a char is a number
-        car -- Char to analyse
-        return True if car is a number
+    """
+    Check if a char is a number
+    car -- Char to analyse
+    return True if car is a number
     """
     return car.isdigit()
 
 
 def caractere_valide(car: str) -> bool:
-    """ Check if a char is valid
-        car -- Char to analyse
-        return True if is valid
+    """
+    Check if a char is valid
+    car -- Char to analyse
+    return True if is valid
     """
     return ouvrante(car) or fermante(car) or nombre(car) or operateur(car)
 
 
 def verif_parenthese(expression: str):
-    """ Check if an expression is valid
-        expression -- str to analyse
-        return True if is vlid
+    """
+    Check if an expression is valid
+    Expression -- str to analyse
+    return True if is valid
     """
     ouvrante = False
+    is_valid = True
+    length = len(expression)
+    i = 0
+    while i < length and is_valid:
+        if not caractere_valide(expression[i]):
+            is_valid = False
 
-    for i in expression:
-        if (not caractere_valide(expression)):
-            return False
 
         if (ouvrante(i)):
             ouvrante = True
@@ -105,6 +127,9 @@ def test_exercice5():
     print("Test renverse avec }  : ", renverse("}"))
     print("Test renverse avec ]  : ", renverse("]"))
     print("Test renverse avec ]  : ", renverse("1"))
+    print("\nTest operateur avec * -> TRUE  : ", operateur("*"))
+    print("Test operateur avec + -> TRUE  : ", operateur(*"+"))
+    print("Test operateur avec f -> FALSE  : ", operateur("f"))
     print("\nTest nombre avec 4 -> TRUE  : ", nombre("4"))
     print("Test nombre avec g -> FALSE  : ", nombre("g"))
     print("\nTest caractère_valide avec 4 -> TRUE : ", caractere_valide("4"))

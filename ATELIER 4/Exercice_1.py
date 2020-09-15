@@ -8,19 +8,21 @@ version    = "1.0"
 
 
 def full_name(str_arg: str) -> str:
-    """ Transform text (Uppercase for Name, Lowercase for surname)
+    """
+    Transform text (Uppercase for Name, Lowercase for surname)
     str_arg -- The string who contain the name/surname
     return the formated text
     """
-    res = str_arg.split()
-    return res[0].upper() + " " + res[1].capitalize()
+    splited_text = str_arg.split()
+    return splited_text.upper() + " " + splited_text.capitalize()
 
 
 def is_mail(str_arg: str) -> (int, int):
-    """ Check if email is valid
-       str_arg -- The string who contain the email
-       return error code or succes code (1,0)
-       """
+    """
+    Check if email is valid
+    str_arg -- The string who contain the email
+    return error code or succes code (1,0)
+    """
 
     res = (1, 0)
 

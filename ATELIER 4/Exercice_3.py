@@ -30,10 +30,11 @@ def placesLettre(char: str, mot: str) -> list:
 
 
 def outputStr(mot: str):
-    """ Transforme textthe mystery text
-       mot -- The word
-       return a str of "_"
-       """
+    """
+    Transforme textthe mystery text
+    mot -- The word
+    return a str of "_"
+    """
     str = ""
     for i in mot:
         str += '_'

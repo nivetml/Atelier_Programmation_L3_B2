@@ -41,7 +41,8 @@ def finit_par(word: str, suffix: str) -> bool:
 
 
 def finissent_par(lst_mot: list, suffix: str) -> list:
-    """ Filter in a list the word who contain a specific suffix
+    """
+    Filter in a list the word who contain a specific suffix
     list_mot -- List of words
     suffix -- The suffix
     return the filtered list
@@ -54,7 +55,8 @@ def finissent_par(lst_mot: list, suffix: str) -> list:
 
 
 def commencent_par(lst_mot: list, prefix: str) -> list:
-    """ Filter in a list the word who contain a specific prefix
+    """
+    Filter in a list the word who contain a specific prefix
     list_mot -- List of words
     prefix -- The suffix
     return the filtered list
@@ -67,7 +69,8 @@ def commencent_par(lst_mot: list, prefix: str) -> list:
 
 
 def liste_mots(lst_mot: list, prefix: str, suffix: str, n: int) -> list:
-    """ Filter in a list the word who contain a specific prefix
+    """
+    Filter in a list the word who contain a specific prefix
     list_mot -- List of words
     prefix -- The suffix
     return the filtered list
@@ -79,7 +82,8 @@ def liste_mots(lst_mot: list, prefix: str, suffix: str, n: int) -> list:
 
 
 def dictionnaire(file: str) -> list:
-    """ Display content of a file.txt
+    """
+    Display content of a file.txt
     file -- Txt file to read
     return the list of word
     """
