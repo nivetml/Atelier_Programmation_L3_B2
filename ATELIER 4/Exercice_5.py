@@ -23,3 +23,21 @@ def operateur(car : str):
 
 def nombre(car : str):
     return isdigit(car)
+
+def caractere_valide(car : str):
+    return ouvrante(car) or fermante(car) or nombre(car) or operateur(car)
+
+def verif_parenthese(expression : str):
+    ouvrante = False
+
+    for i in expression:
+        if (not caractere_valide(expression)):
+            return False
+
+        if (ouvrante(i)):
+            ouvrante = True
+        elif (fermante(i) and not ouvrante):
+            return False
+        elif (fermante(i)):
+            ouvrante = False
+    return True
